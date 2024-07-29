@@ -1,0 +1,84 @@
+.form-container {
+    margin: 2em 0;
+    padding: 1em;
+  }
+
+  .form-container {
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out;
+}
+.form-container.animate {
+    transform: translateX(0);
+}
+  
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 1em;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  .form-group textarea{
+    width: 100%;
+    padding: 1.8vw;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 30vh;
+  }
+  
+  .form-group textarea:focus {
+    border-color: #4A90E2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  }
+  
+  .form-group button {
+      border-radius: 6px;
+      background: #007AFF;
+      position: relative;
+      display: flex;
+      padding: 5px 13.5px 4px 13px;
+      box-sizing: border-box;
+      color: #fff;
+      
+  }
+  
+  .form-group button:hover {
+    background-color: #357ABD;
+  }
+
+  .form-group button:active {
+    background-color: #007AFF;
+    box-shadow: 0 5px #666;
+    transform: translateY(14px);
+  }
+  
+
+
+
+
+
+
+
+  @media only screen and (max-width: 850px) {
+    .form-container{
+        width: 100%;
+        padding: 0vw 3vw;
+        overflow: hidden;
+    }
+
+    .form-container h2 {
+        font-size: 25px;
+        align-self:flex-start;
+    }
+  }
