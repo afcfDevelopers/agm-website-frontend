@@ -651,7 +651,6 @@ const [eventData, setEventData] = useState(null);
                   <a href={campusDetails.fellowshipFacebook}><FiFacebook /></a>
                   <a href={campusDetails.fellowshipInstagram}><FiInstagram /></a>
                 </div>
-                <span>AfcfFutminnaChapter</span>
               </div>
             </div>
           </div>
@@ -966,7 +965,7 @@ const [eventData, setEventData] = useState(null);
                     <h2>{eventData.event_name}:</h2>
                     <a style={{marginLeft:'2vh'}} href={eventData.event_Live_link} target="_blank" rel="noopener noreferrer">
                         Join Event Live
-                    </a>
+                    </a>Afcf
                 </div>
             )}
         </div>
