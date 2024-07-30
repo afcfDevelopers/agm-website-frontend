@@ -1,0 +1,107 @@
+/* src/components/ImageSlider.css */
+
+.slider-container {
+    width: 100%;
+    margin-bottom:10vh;
+    height: 100%;
+    border-radius: 20px;
+  }
+  
+  .slide {
+    position: relative;
+    border-radius: 10px;
+  }
+  
+ .slider-img{
+    width: 100%;
+    height: 100%;
+  }
+  .slick-slide img{
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+.slick-slider .slick-track{
+  height: 70vh;
+  object-fit: fill;
+}
+.slick-slider .slick-list{
+  border-radius: 10px;
+  height: 70vh;
+  object-fit: fill;
+}
+.slick-slider{
+  height: 70vh;
+  object-fit: fill;
+}
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: #fff;
+    padding: 0.9%;
+    display: flex;
+    align-items:end;
+    background: rgba(0, 0, 0, 0.5);
+
+  }
+ 
+  .text {
+       width: 450px;
+        font-family: "Abril Fatface", serif;
+        font-weight: 800;
+        font-size: clamp(2rem, 2.5vw, 3rem);
+      
+        line-height: 1;
+        color: #FFFFFF;
+        margin:0vh 0vh 10vh 10vh;
+  }
+
+ 
+  .slick-dots li {
+    margin: 0 10px;
+  }
+  
+  .slick-dots li button:before {
+    margin-top: 3vh;
+    color: #007AFF;
+    font-size: 12px; /* Adjust the size of the dots */
+    opacity: 0.75; /* Adjust the transparency */
+  }
+
+  
+  .slick-dots li.slick-active button:before {
+    color: transparent; /* Change to your desired active dot color */
+    opacity: 1; /* Ensure active dot is fully opaque */
+    width: 25px;
+    border-radius: 14.5px;
+    background-color: #007AFF;
+  }
+
+ 
+
+
+
+
+
+
+
+
+
+
+  @media only screen and (max-width: 990px) {
+    .text {
+     
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .text {
+      width: 100%;
+      margin: 0vh 0vh 10vh 5vh;
+    }
+  }

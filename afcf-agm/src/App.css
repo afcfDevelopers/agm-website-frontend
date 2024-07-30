@@ -1,0 +1,39 @@
+:root{
+  --gradiet-color: linear-gradient(90deg, #007AFF 0%, #2FE6F2 23.5%, #599CE6 44.5%, #CEA3F9 72.5%, #004999 100%);
+}
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+
+h2, h3, h4, h5, h6, p{
+ color: #383838;
+ margin: 0;
+ 
+}
+h1{
+font-size: clamp(1rem, 2.5vw, 2rem);
+font-weight: 800;
+color: white;
+font-family: "Abril Fatface", serif;
+text-align: center;
+}
+span{
+  font-size: 20px;
+  text-decoration: none;
+  color: #ffff;
+  font-family: "Inter", sans-serif;
+  margin: 0vh 8vh 0vh 8vh;
+}
+li{
+  list-style: none;
+  
+}
+h2, h4{
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
