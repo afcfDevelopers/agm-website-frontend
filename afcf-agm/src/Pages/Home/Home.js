@@ -6,7 +6,7 @@ import './home.css';
 import './homeanimation.css';
 import { useSwipeable } from 'react-swipeable';
 import './css.css'
-import Tab from '../../Components/Tabs';
+import Tab from '../../Components/NavBar/Tabs'
 import logo1 from '../../Images/logo1.png';
 import logo2 from '../../Images/logo2.png';
 import logo3 from '../../Images/logo3.png';
@@ -14,9 +14,11 @@ import logo4 from '../../Images/logo4.png';
 import logo5 from '../../Images/logo5.png';
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 import { RiCheckboxCircleFill, RiImageAddFill, RiRefreshFill } from "react-icons/ri";
-import ImageSlider from '../../Components/ImageSlider';
-import HelpDesk from '../../Components/HelpDesk';
+import ImageSlider from '../../Components/ImageSlider/ImageSlider';
+import HelpDesk from '../../Components/HelpDesk/HelpDesk';
 import axios from 'axios'
+import Footer from '../../Components/Footer/Footer';
+import Navbar from '../../Components/NavBar/Navbar';
 
 const Home = () => {
   const [campusList, setCampusList] = useState([]);
@@ -88,6 +90,7 @@ const Home = () => {
         console.log(data);
         const responseDetails = data['queryset'][0];
         setCampusDetails({
+          campusAcronym: responseDetails['campusOrSchoolAcronym'],
           campusName: responseDetails['campusName'],
           flyer: responseDetails['flyer'],
           coordinatorName: responseDetails['coordinator_name'],
@@ -319,7 +322,10 @@ const imagesToDisplay = images.slice(0, 3);
   };
 //-------------------------------//
 
-
+useEffect(() => {
+  // Fetch data for "unilag" when the component mounts
+  handleLinkClick('unilag');
+}, []);
 
 const getItemStyle = (status) => {
   if (status.toLowerCase() === 'inactive') {
@@ -332,7 +338,7 @@ const getItemStyle = (status) => {
 
 
 const containerRef1 = useRef(null);
-  const containerRef2 = useRef(null);
+const containerRef2 = useRef(null);
 const cardRef1 = useRef(null);
 const cardRef2 = useRef(null);
 const [activeCard, setActiveCard] = useState(null);
@@ -485,7 +491,11 @@ const [eventData, setEventData] = useState(null);
         <div id="listDiv">
           {filterCampusesByType('university').map((campus) => (
             <li key={campus.campusOrSchoolAcronym}>
-            <a className='university-list' href='#' onClick={() => handleLinkClick(campus.campusOrSchoolAcronym)} style={getItemStyle(campus.active_Inactive)}>
+            <a className='university-list' href="javascript:void(0)"   onClick={(e) => {
+    e.preventDefault(); // Prevent default link behavior
+    handleLinkClick(campus.campusOrSchoolAcronym); // Call your function
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top
+  }} style={getItemStyle(campus.active_Inactive)}>
               {campus.campusName}- {campus.active_Inactive}
             </a>
           </li>
@@ -499,7 +509,11 @@ const [eventData, setEventData] = useState(null);
         <div id="listDiv">
           {filterCampusesByType('college').map((campus) => (
               <li key={campus.campusOrSchoolAcronym}>
-              <a className='university-list' href='#' onClick={() => handleLinkClick(campus.campusOrSchoolAcronym)} style={getItemStyle(campus.active_Inactive)}>
+              <a className='university-list' href="javascript:void(0)"   onClick={(e) => {
+    e.preventDefault(); // Prevent default link behavior
+    handleLinkClick(campus.campusOrSchoolAcronym); // Call your function
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top
+  }} style={getItemStyle(campus.active_Inactive)}>
                 {campus.campusName}- {campus.active_Inactive}
               </a>
             </li>
@@ -514,7 +528,11 @@ const [eventData, setEventData] = useState(null);
          
           {filterCampusesByType('polytechnic').map((campus) => (
             <li key={campus.campusOrSchoolAcronym}>
-            <a className='university-list' href='#' onClick={() => handleLinkClick(campus.campusOrSchoolAcronym)} style={getItemStyle(campus.active_Inactive)}>
+            <a className='university-list' href="javascript:void(0)"   onClick={(e) => {
+    e.preventDefault(); // Prevent default link behavior
+    handleLinkClick(campus.campusOrSchoolAcronym); // Call your function
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top
+  }} style={getItemStyle(campus.active_Inactive)}>
               {campus.campusName}- {campus.active_Inactive}
             </a>
           </li>
@@ -534,10 +552,18 @@ const [eventData, setEventData] = useState(null);
 
 
 
+  const containerRef = useRef(null);
 
+  const scrollToContainer = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
 
   return (
+    <div>
+         <Navbar handleLinkClick={handleLinkClick}  onScrollToContainer={scrollToContainer}/>
     <div className='home-container' >
       {/**-----------------------Hero Container------------------------ */}
       <div className='sub-home-container'>
@@ -651,6 +677,7 @@ const [eventData, setEventData] = useState(null);
                   <a href={campusDetails.fellowshipFacebook}><FiFacebook /></a>
                   <a href={campusDetails.fellowshipInstagram}><FiInstagram /></a>
                 </div>
+                <span>Afcf{campusDetails.campusAcronym}Chapter</span>
               </div>
             </div>
           </div>
@@ -959,20 +986,21 @@ const [eventData, setEventData] = useState(null);
                     <h2>Events</h2>
                   </div>
             <button className='event-button' onClick={getLatestEventAgmLink}>Get Latest Event AGM Link</button>
-            {error && <p>{error}</p>}
             {eventData && (
                 <div className='event-list'>
                     <h2>{eventData.event_name}:</h2>
                     <a style={{marginLeft:'2vh'}} href={eventData.event_Live_link} target="_blank" rel="noopener noreferrer">
                         Join Event Live
-                    </a>Afcf
+                    </a>
                 </div>
             )}
         </div>
-        <div id='helpdesk'>
+        <div ref={containerRef}>
             <HelpDesk /> 
           </div>
       </div>
+    </div>
+    <Footer  campusDetails={campusDetails}/>
     </div>
   );
 }

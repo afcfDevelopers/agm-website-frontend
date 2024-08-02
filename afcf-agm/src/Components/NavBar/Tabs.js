@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Pages/Home/home.css';  // Your custom CSS file
+import '../../Pages/Home/home.css';  // Your custom CSS file
 
 const Tab = ({ tabs, activeCount, inactiveCount} ) => {
     const [activeTab, setActiveTab] = useState(0);

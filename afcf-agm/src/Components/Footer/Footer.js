@@ -2,12 +2,12 @@ import React from 'react';
 import './Footer.css';
 
 // Import SVG files
-import Facebook from '../Images/facebook.svg';
-import Instagram from '../Images/instagram.svg';
-import Linkdin from '../Images/linkdin.svg';
-import Twitter from '../Images/twitter.svg';
+import Facebook from '../../Images/facebook.svg';
+import Instagram from '../../Images/instagram.svg';
+import Linkdin from '../../Images/linkdin.svg';
+import Twitter from '../../Images/twitter.svg';
 
-const Footer = () => {
+const Footer = ({campusDetails}) => {
   return (
     <footer className="footer">
       <div className="left">
@@ -29,7 +29,7 @@ const Footer = () => {
       <a className='footer-icon' href="https://example1.com" target="_blank" rel="noopener noreferrer">
         <img src={Twitter} alt="Icon 4" />
       </a>
-        <span className="afcf-text">AfcfUNILAGChapter</span>
+        <span className="afcf-text">Afcf{campusDetails.campusAcronym}Chapter</span>
       </div>
     </footer>
   );

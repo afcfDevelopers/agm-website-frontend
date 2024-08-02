@@ -270,9 +270,7 @@ label{
     display: flex;
     justify-content:space-between;
   }
-  .active {
-    background-color: var(--color-3);
-  }
+
   
   .active::before {
     width: 100%;
