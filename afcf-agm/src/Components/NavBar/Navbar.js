@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import logo from '../../Images/logo.png';
 import { Link, useLocation } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Navbar = () => {
   const [campusList, setCampusList] = useState([]);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
-
+  
   // Fetch campuses based on search query
   const getCampusAvs = (query) => {
     console.log('Campus AVS List API was called..');
@@ -32,11 +32,12 @@ const Navbar = () => {
     }
   }, [searchQuery]);
 
-  // Filter the campus list based on the search query, considering both name and acronym
+  // Filter the campus list based on the search query
   const filteredCampusList = campusList.filter(campus =>
     campus.campusName.toLowerCase().includes(searchQuery.toLowerCase()) ||
     campus.campusOrSchoolAcronym.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
   const dropdownMaxHeight = Math.min(filteredCampusList.length * 50, 300); // 50px for each item, capped at 300px
 
   // Style for active or inactive status
@@ -51,6 +52,8 @@ const Navbar = () => {
 
   const handleItemClick = (acronym) => {
     setSearchQuery(''); // Clear the search query
+    setCampusList([]);  // Clear the campus list
+    setIsNavOpen(false)
   };
 
   const toggleNav = () => setIsNavOpen(!isNavOpen);
@@ -59,14 +62,10 @@ const Navbar = () => {
   const [isFocused, setIsFocused] = useState(false);
   const showSearchInput = isHovered || isFocused;
 
-  useEffect(() => {
-    targetRef.current.value = "";
-  }, [showSearchInput]);
   const handleCloseSearch = () => {
-  
     setIsFocused(false);
     setSearchQuery(""); // Clear the search query
-  };
+  }
 
   return (
     <nav className="navbar">
@@ -76,34 +75,32 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={`navbar-drop ${isNavOpen ? 'active' : ''}`}>
-      <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search for a campus by name or acronym..."
-           className="dropdown-btn"
-          />
-          
-          {searchQuery && filteredCampusList.length > 0 && (
-            <ul className="dropdown-container" onClick={handleItemClick}>
-              <div className="dropdown"
-
-              >
-                {filteredCampusList.map((campus) => (
-                  <li key={campus.campusOrSchoolAcronym}>
-                    <Link
-                      className="dropdown-university-list"
-                      to={campus.active_Inactive.toLowerCase() === 'inactive' ? '#' : `/campus/${campus.campusOrSchoolAcronym}`}
-                      style={getItemStyle(campus.active_Inactive)}
-                      onClick={() => handleItemClick(campus.campusOrSchoolAcronym)}
-                    >
-                      {campus.campusName} ({campus.campusOrSchoolAcronym}) - {campus.active_Inactive}
-                    </Link>
-                  </li>
-                ))}
-              </div>
-            </ul>
-          )}
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search for a campus by name or acronym..."
+          className="dropdown-btn"
+        />
+        
+        {searchQuery && filteredCampusList.length > 0 && (
+          <ul className="dropdown-container" onClick={handleItemClick}>
+            <div className="dropdown">
+              {filteredCampusList.map((campus) => (
+                <li key={campus.campusOrSchoolAcronym}>
+                  <Link
+                    className="dropdown-university-list"
+                    to={campus.active_Inactive.toLowerCase() === 'inactive' ? '#' : `/campus/${campus.campusOrSchoolAcronym}`}
+                    style={getItemStyle(campus.active_Inactive)}
+                    onClick={() => handleItemClick(campus.campusOrSchoolAcronym)}
+                  >
+                    {campus.campusName} ({campus.campusOrSchoolAcronym}) - {campus.active_Inactive}
+                  </Link>
+                </li>
+              ))}
+            </div>
+          </ul>
+        )}
       </div>
       <div className='navbar-right'>
         <div className="nav">
@@ -113,29 +110,20 @@ const Navbar = () => {
           {location.pathname === '/' && <span className="current"></span>}
         </div>
         <div
-       className={`container ${showSearchInput ? "hover" : ""}`}
-       onMouseEnter={() => setIsHovered(true)}
-       onMouseLeave={() => setIsHovered(false)}
-       onFocus={() => setIsFocused(true)}
-       onBlur={handleCloseSearch}      >
-        <input
+          className='container' 
+         >
+          <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for a campus by name or acronym..."
             ref={targetRef}
-            className={`search-input ${showSearchInput ? "show" : ""}`}
+            className= 'search-input'
           />
-           {showSearchInput ? (
-      null
-      ) : (
-        <FaSearch  className="icon-magnifying-glass" />
-      )}
+       
           {searchQuery && filteredCampusList.length > 0 && (
             <ul className="dropdown-container" onClick={handleItemClick}>
-              <div className="dropdown"
-
-              >
+              <div className="dropdown">
                 {filteredCampusList.map((campus) => (
                   <li key={campus.campusOrSchoolAcronym}>
                     <Link
@@ -153,14 +141,10 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      
-    
+
       <div className="hamburger-menu" onClick={toggleNav} aria-label="Toggle Navigation">
-     
-        <FaSearch  className="icon-magnifying-glass" />
-    
+        <FaSearch className="icon-magnifying-glass" />
       </div>
-    
     </nav>
   );
 };
