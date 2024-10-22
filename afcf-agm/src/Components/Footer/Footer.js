@@ -14,22 +14,23 @@ const Footer = ({campusDetails}) => {
         <span>© 2024</span>
       </div>
       <div className="right">
-      <a className='footer-icon' href="https://example1.com" target="_blank" rel="noopener noreferrer">
+      <a className='footer-icon' href="https://www.facebook.com/afcfweca?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
         <img src={Facebook} alt="Icon 1" />
       </a>
 
-      <a className='footer-icon' href="https://example1.com" target="_blank" rel="noopener noreferrer">
+      <a className='footer-icon' href="https://www.instagram.com/afcfweca?igsh=MWxnaTczMWxudGZtZA==" target="_blank" rel="noopener noreferrer">
         <img src={Instagram} alt="Icon 2" />
       </a>
 
-      <a className='footer-icon' href="https://example1.com" target="_blank" rel="noopener noreferrer">
-        <img src={Linkdin} alt="Icon 3" />
-      </a>
 
-      <a className='footer-icon' href="https://example1.com" target="_blank" rel="noopener noreferrer">
+      <a className='footer-icon' href="https://x.com/Afcfweca?t=-Zq_fRncayReyOSpmHcXtw&s=08" target="_blank" rel="noopener noreferrer">
         <img src={Twitter} alt="Icon 4" />
       </a>
-        <span className="afcf-text">Afcf{campusDetails.campusAcronym}Chapter</span>
+      <a href={`mailto:afcfweca@apostolicfaithweca.org`} target="_blank" rel="noopener noreferrer">
+      <span className="afcf-text">Afcf{/*campusDetails.campusOrSchoolAcronym*/}Chapter</span>
+
+</a>
+
       </div>
     </footer>
   );

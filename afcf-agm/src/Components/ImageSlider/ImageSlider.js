@@ -6,12 +6,9 @@ import './ImageSlider.css';
 
 const ImageSlider = () => {
   const images = [
-    { src: `${process.env.PUBLIC_URL}/slide5.jpeg`, text: 'Apostolic Faith Campus Fellowship Annual General Meeting' },
+    { src: `${process.env.PUBLIC_URL}/ddddd.jpg` },
     { src: `${process.env.PUBLIC_URL}/slide2.jpeg`, text: 'Apostolic Faith Campus Fellowship Annual General Meeting' },
-    { src: `${process.env.PUBLIC_URL}/slide3.png`, text: 'Apostolic Faith Campus Fellowship Annual General Meeting' },
-    { src: `${process.env.PUBLIC_URL}/slide4.jpeg`, text: 'Apostolic Faith Campus Fellowship Annual General Meeting' },
-    { src: `${process.env.PUBLIC_URL}/slide1.jpeg`, text: 'Apostolic Faith Campus Fellowship Annual General Meeting' },
-  ];
+   ];
 
   const settings = {
     dots: true,
@@ -19,7 +16,7 @@ const ImageSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    //autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2000,
   };
 

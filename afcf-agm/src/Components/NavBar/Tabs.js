@@ -22,7 +22,7 @@ const Tab = ({ tabs, activeCount, inactiveCount} ) => {
                 <div className='inactive-campus'> <div className='inactive-campus-box'></div> <p>Total Inactive Campus: {inactiveCount}</p></div>
               </div>
             <div className="tab-content">
-                <div style={{overflowX:'auto', width:'100%', height:'100%'}}>
+                <div style={{overflowY:'auto', width:'100%', height:'100%'}}>
                 {tabs[activeTab].content}
                 </div>
             </div>

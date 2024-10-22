@@ -1,0 +1,200 @@
+.embla_ {
+    width: 100%;
+    margin: auto;
+    --slide-height: 19rem;
+    --slide-spacing: 1rem;
+    --slide-size: 30%;
+  }
+  .embla___viewport {
+    overflow: hidden;
+  }
+  .embla___container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    flex-wrap: wrap;
+    margin-left: calc(var(--slide-spacing) * -1);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .embla___slide {
+    transform: translate3d(0, 0, 0);
+    
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+ 
+  
+  }
+  .embla___slide__number-container{
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    border-radius: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--slide-height);
+    user-select: none;
+    background: linear-gradient(90deg, #007AFF 0%, #2FE6F2 23.5%, #599CE6 44.5%, #CEA3F9 72.5%, #004999 100%);
+    padding: 3px;
+    width: 100%;
+    margin: 2vh;
+  }
+  .embla___slide__number {
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    border-radius: 1.5rem;
+    font-size: 4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+   background-color: white;
+   object-fit: cover;
+  }
+  .embla___slide__image{
+    width:100% ;
+    height: 100%;
+    border-radius: 1.5rem;
+  }
+  .embla___controls {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+  }
+  .embla___buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .embla___button {
+    -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    width: 3.6rem;
+    height: 3.6rem;
+    z-index: 1;
+    border-radius: 50%;
+    color: var(--text-body);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .embla___button:disabled {
+    color: var(--detail-high-contrast);
+  }
+  .embla___button__svg {
+    width: 35%;
+    height: 35%;
+  }
+  .embla___dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+  }
+  .embla___dot {
+    -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .embla___dot:after {
+    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    content: '';
+  }
+  .embla___dot--selected:after {
+    box-shadow: inset 0 0 0 0.2rem var(--text-body);
+  }
+  .embla___slide__number {
+    backface-visibility: hidden;
+  }
+  @media only screen and (max-width: 500px){
+    .embla_ {
+      width: 100%;
+      margin: auto;
+      --slide-height: 10rem;
+      --slide-spacing: 0.5rem;
+      --slide-size: 55%;
+    }
+    .embla___viewport {
+      overflow: hidden;
+    }
+    .embla___container {
+      width: 100%;
+      display: flex;
+      touch-action: pan-y pinch-zoom;
+      margin-left: calc(var(--slide-spacing) * -1);
+      
+    }
+    .embla___slide {
+      transform: translate3d(0, 0, 0);
+      flex: 0 0 var(--slide-size);
+      width: 100%; 
+      
+    }
+
+    .embla___slide__number {
+      box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+      border-radius: 1.5rem;
+      font-size: 4rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      user-select: none;
+     background-color: white;
+     object-fit: cover;
+    }
+    .embla___slide__image{
+      width:100% ;
+      height: 100%;
+      border-radius: 1.5rem;
+    }
+    .embla___controls {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      justify-content: space-between;
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+    }
+    .embla___buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+      align-items: center;
+    }
+  }

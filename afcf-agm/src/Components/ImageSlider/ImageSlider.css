@@ -2,7 +2,7 @@
 
 .slider-container {
     width: 100%;
-    margin-bottom:10vh;
+    margin:5vh 0vh 10vh 0vh;
     height: 100%;
     border-radius: 20px;
   }
@@ -19,7 +19,7 @@
   .slick-slide img{
     width: 100%;
     height: 70vh;
-    object-fit: cover;
+    object-fit: fill;
   }
 .slick-slider .slick-track{
   height: 70vh;
@@ -46,7 +46,7 @@
     padding: 0.9%;
     display: flex;
     align-items:end;
-    background: rgba(0, 0, 0, 0.5);
+    
 
   }
  
@@ -103,5 +103,22 @@
     .text {
       width: 100%;
       margin: 0vh 0vh 10vh 5vh;
+    }
+    .slick-slide img{
+      width: 100%;
+      height: 40vh;
+      object-fit: fill;
+    }
+    .slick-slider .slick-track{
+      height: 40vh;
+      object-fit: fill;
+    }
+    .slick-slider .slick-list{
+      border-radius: 10px;
+      height: 40vh;
+      object-fit: fill;
+    }
+    .slick-slider{
+      height: 40vh;
     }
   }

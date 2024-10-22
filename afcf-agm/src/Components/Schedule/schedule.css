@@ -1,0 +1,77 @@
+.main-schedule{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10vh 0vh 5vh 0vh;
+   
+}
+.main-schedule-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+.schedule-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh;
+}
+.schedule-name{
+   background-color:#007AFF ;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 5px;
+   color: #ffffff;
+   margin-bottom: 5vh;
+   padding: 3vh;
+   width: 30vh;
+}
+.schedule-name h3{
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 200;
+    text-align: center;
+}
+.schedule-activities{
+    width: 100%;
+    padding: 2vh;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: 1px solid #007AFF ;
+    margin-top: 2vh;
+    align-items: center;
+}
+.schedule-download-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh 0vh 5vh 0vh;
+}
+
+.schedule-button{
+    padding: 2vh 5vh 2vh 5vh;
+    background-color: #007AFF;
+    color: #ffff;
+    border-radius: 10px;
+    border: 1px solid #007AFF;
+    -webkit-transition: background-color 2s ease-out;
+    -moz-transition: background-color 2s ease-out;
+    -o-transition: background-color 2s ease-out;
+    transition: background-color 2s ease-out;
+  }
+  .schedule-button:hover{
+    background-color: #ffffff;
+    color: #007AFF;
+  }
+  
+    

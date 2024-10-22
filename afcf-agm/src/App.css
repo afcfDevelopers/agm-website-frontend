@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root{
   --gradiet-color: linear-gradient(90deg, #007AFF 0%, #2FE6F2 23.5%, #599CE6 44.5%, #CEA3F9 72.5%, #004999 100%);
 }
