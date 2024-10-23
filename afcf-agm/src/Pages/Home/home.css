@@ -328,7 +328,7 @@ span{
 
 }
 .cancel-announcement{
-  width: min(700px, 98%);
+  width: min(600px, 90%);
   display: flex;
   justify-content: flex-end;
   color: #ffffff;

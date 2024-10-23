@@ -15,7 +15,7 @@ import { RiCheckboxCircleFill, RiImageAddFill, RiMailFill, RiRefreshFill } from 
 import SecondEmblaSlider from '../../Components/embla/EmblaSlider';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-
+import '../../Components/embla/emblaCss.css'
 const School = () => {
   const { campusOrSchoolAcronym } = useParams();
   const [campusDetails, setCampusDetails] = useState(null);
@@ -691,16 +691,16 @@ const School = () => {
                 </div>
                 <div style={{marginTop:'7vh'}} className="embla_">
           
-                <div className="embla__container">
+                <div className="embla___container">
                 {Array.isArray(campusReportPics.nrp_images) && campusReportPics.nrp_images.length > 0 ? (
         campusReportPics.nrp_images.map((image, index) => (
-          <div className="embla__slide" key={`nrp-${index}`}>
-            <div className="embla__slide__number-container">
-              <div className="embla__slide__number">
+          <div className="embla___slide" key={`nrp-${index}`}>
+            <div className="embla___slide__number-container">
+              <div className="embla___slide__number">
                 <img
                   src={image}
                   alt={`NRP Image ${index + 1}`}
-                  className="embla__slide__image"
+                  className="embla___slide__image"
                 />
               </div>
             </div>
@@ -722,16 +722,16 @@ const School = () => {
                 </div>
                 <div style={{marginTop:'7vh'}} className="embla_">
           
-          <div className="embla__container">
+          <div className="embla___container">
                    {Array.isArray(campusReportPics.wlc_images) && campusReportPics.wlc_images.length > 0 ? (
                     campusReportPics.wlc_images.map((image, index) => (
-                      <div className="embla__slide" key={`wlc-${index}`}>
-                        <div className="embla__slide__number-container">
-                          <div className="embla__slide__number">
+                      <div className="embla___slide" key={`wlc-${index}`}>
+                        <div className="embla___slide__number-container">
+                          <div className="embla___slide__number">
                             <img
                               src={image}
                               alt={`WLC Image ${index + 1}`}
-                              className="embla__slide__image"
+                              className="embla___slide__image"
                             />
                           </div>
                         </div>
