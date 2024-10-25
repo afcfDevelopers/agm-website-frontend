@@ -36,7 +36,7 @@
     "eject": "react-scripts eject",
     "prod": "pm2 start server.js --name agm-4700 && pm2 save",
     "stop": "pm2 delete agm-4700 && pm2 save",
-    "logs": "pm2 logs agm-4700-9800"
+    "logs": "pm2 logs agm-4700"
   },
   "eslintConfig": {
     "extends": [
