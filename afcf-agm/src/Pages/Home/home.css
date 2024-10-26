@@ -327,6 +327,7 @@ span{
   aspect-ratio: 1;
 
 }
+
 .cancel-announcement{
   width: min(600px, 90%);
   display: flex;

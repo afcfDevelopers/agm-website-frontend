@@ -692,8 +692,8 @@ const School = () => {
                 <div style={{marginTop:'7vh'}} className="embla_">
           
                 <div className="embla___container">
-                {Array.isArray(campusReportPics.nrp_images) && campusReportPics.nrp_images.length > 0 ? (
-        campusReportPics.nrp_images.map((image, index) => (
+                {Array.isArray(campusReportPics.wlc_images) && campusReportPics.wlc_images.length > 0 ? (
+        campusReportPics.wlc_images.map((image, index) => (
           <div className="embla___slide" key={`nrp-${index}`}>
             <div className="embla___slide__number-container">
               <div className="embla___slide__number">
@@ -723,8 +723,8 @@ const School = () => {
                 <div style={{marginTop:'7vh'}} className="embla_">
           
           <div className="embla___container">
-                   {Array.isArray(campusReportPics.wlc_images) && campusReportPics.wlc_images.length > 0 ? (
-                    campusReportPics.wlc_images.map((image, index) => (
+                   {Array.isArray(campusReportPics.nrp_images) && campusReportPics.nrp_images.length > 0 ? (
+                    campusReportPics.nrp_images.map((image, index) => (
                       <div className="embla___slide" key={`wlc-${index}`}>
                         <div className="embla___slide__number-container">
                           <div className="embla___slide__number">
