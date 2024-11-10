@@ -146,14 +146,14 @@ const Home = () => {
     fetchEventData();
   }, []);
 
-  const [announcement, setAnnouncement] = useState(false);
-  useEffect(() => {
-    setAnnouncement(true);
-  }, []);
+//  const [announcement, setAnnouncement] = useState(false);
+//  useEffect(() => {
+//    setAnnouncement(true);
+//  }, []);
 
   return (
     <div className='home-container'>
-      {announcement && (
+     {/** {announcement && (
         <motion.div 
           className='announcement-container' 
           initial={{ opacity: 0, y: -50 }} 
@@ -168,7 +168,7 @@ const Home = () => {
             <img src={annoucementImage} style={{width:'100%', height:'100%'}} alt="" />
           </div>
         </motion.div>
-      )}
+      )}*/}
       <div className='sub-home-container'>
         <motion.div 
           ref={topSectionRef} 
