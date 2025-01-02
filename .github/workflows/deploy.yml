@@ -33,7 +33,7 @@ jobs:
         run: |
           ssh user@your-server-ip << 'EOF'
           pm2 stop all
-          cd /home/agm-website-frontend/afcf-agm
+          cd /afcf-agm
           git pull
           npm install
           npm run build
