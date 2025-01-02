@@ -1,0 +1,43 @@
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Install dependencies
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      # Build the application
+      - name: Build the application
+        run: npm run build
+
+      # Deploy to server
+      - name: Deploy to server
+        run: |
+          ssh user@your-server-ip << 'EOF'
+          pm2 stop all
+          cd /home/agm-website-frontend/afcf-agm
+          git pull
+          npm install
+          npm run build
+          pm2 start server.js
+          EOF
+        env:
+          NODE_ENV: production
