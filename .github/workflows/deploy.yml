@@ -42,7 +42,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no root@91.235.129.103 << 'EOF'
           pm2 stop agm-4700
-          cd /home/agm-website-frontend/afcf-agm
+          cd /home/agm-website-frontend
           git pull
           npm install
           npm run build
