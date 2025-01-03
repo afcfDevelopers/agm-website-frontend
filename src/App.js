@@ -1,4 +1,5 @@
-import React, {useRef} from 'react';
+import React from 'react';
+// import React, {useRef} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Home from './Pages/Home/Home';
@@ -9,13 +10,13 @@ import Footer from './Components/Footer/Footer';
 
 
 const App = ({campusDetails}) => {
-  const containerRef = useRef(null);
+  // const containerRef = useRef(null);
 
-  const scrollToContainer = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const scrollToContainer = () => {
+  //   if (containerRef.current) {
+  //     containerRef.current.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
   return (
     <div>
   

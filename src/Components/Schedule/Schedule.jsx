@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
+// import { jsPDF } from 'jspdf';
+// import html2canvas from 'html2canvas';
 import './schedule.css'
 const PdfDownload = () => {
   const [activities, setActivities] = useState({});
-  const contentRef = useRef();
+  // const contentRef = useRef();
 
   useEffect(() => {
     // Fetch data from the API

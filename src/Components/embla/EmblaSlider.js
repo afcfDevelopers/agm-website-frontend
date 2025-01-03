@@ -3,7 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import './emblaCss.css'
 
 const SecondEmblaSlider = ({ slides,  openProgramModal }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [, emblaApi] = useEmblaCarousel({ loop: true })
   const tweenFactor = useRef(0)
   const tweenNodes = useRef([])
 
@@ -66,7 +66,7 @@ const SecondEmblaSlider = ({ slides,  openProgramModal }) => {
       .on('reInit', setTweenFactor)
       .on('reInit', tweenScale)
       .on('scroll', tweenScale)
-  }, [emblaApi, tweenScale])
+  }, [emblaApi, tweenScale, setTweenFactor, setTweenNodes])
 
   return (
     <div className="embla_">
@@ -76,7 +76,7 @@ const SecondEmblaSlider = ({ slides,  openProgramModal }) => {
             <div className="embla___slide" key={index}>
                 <div className="embla___slide__number-container">
                     <div className='embla___slide__number'>
-                <img src={slide} alt='No Image Record' className="embla___slide__image" onClick={() => openProgramModal(slide)}/>
+                <img src={slide} alt='No Record' className="embla___slide__image" onClick={() => openProgramModal(slide)}/>
                 </div>
               </div>
             </div>

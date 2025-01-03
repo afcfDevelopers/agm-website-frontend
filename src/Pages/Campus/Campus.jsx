@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './campus.css';
 import useEmblaCarousel from 'embla-carousel-react';
 import { FiFacebook, FiInstagram } from "react-icons/fi";
@@ -158,7 +158,7 @@ const School = () => {
 
   useEffect(() => {
     fetchHistoricalImages()
- 
+ // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [campusOrSchoolAcronym])
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -262,26 +262,26 @@ const School = () => {
   if (!campusDetails) {
     return <div>No campus details available.</div>;
   }
-  const revivalSlide = [
-    campusDetails.nrp_picture1 || null,
-    campusDetails.nrp_picture2 || null,
-    campusDetails.nrp_picture3 || null,
-    campusDetails.nrp_picture4 || null,
-    campusDetails.nrp_picture5 || null,
-    campusDetails.nrp_picture6 || null,
-    campusDetails.nrp_picture7 || null,
-    campusDetails.nrp_picture8 || null,
-  ];
-  const welcomeSlides = [
-    campusDetails.wlc_picture1 || null,
-    campusDetails.wlc_picture2 || null,
-    campusDetails.wlc_picture3 || null,
-    campusDetails.wlc_picture4 || null,
-    campusDetails.wlc_picture5 || null,
-    campusDetails.wlc_picture6 || null,
-    campusDetails.wlc_picture7 || null,
-    campusDetails.wlc_picture8 || null,
-  ];
+  // const revivalSlide = [
+  //   campusDetails.nrp_picture1 || null,
+  //   campusDetails.nrp_picture2 || null,
+  //   campusDetails.nrp_picture3 || null,
+  //   campusDetails.nrp_picture4 || null,
+  //   campusDetails.nrp_picture5 || null,
+  //   campusDetails.nrp_picture6 || null,
+  //   campusDetails.nrp_picture7 || null,
+  //   campusDetails.nrp_picture8 || null,
+  // ];
+  // const welcomeSlides = [
+  //   campusDetails.wlc_picture1 || null,
+  //   campusDetails.wlc_picture2 || null,
+  //   campusDetails.wlc_picture3 || null,
+  //   campusDetails.wlc_picture4 || null,
+  //   campusDetails.wlc_picture5 || null,
+  //   campusDetails.wlc_picture6 || null,
+  //   campusDetails.wlc_picture7 || null,
+  //   campusDetails.wlc_picture8 || null,
+  // ];
 
   
 
@@ -404,8 +404,8 @@ const School = () => {
                       <h6>Name: {campusDetails.coordinator_name} </h6>
                       <h6>Course: {campusDetails.coordinator_course} </h6>
                       <h6>Level: {campusDetails.coordinator_level} </h6>
-                      <h6>Email: <a href="">{campusDetails.coordinator_email} </a></h6>
-                      <h6>Phone no: <a href="">{campusDetails.coordinator_phonenumber} </a></h6>
+                      <h6>Email: <a href={`mailto:${campusDetails.coordinator_email}`}>{campusDetails.coordinator_email} </a></h6>
+                      <h6>Phone no: <a href={`tel:${campusDetails.coordinator_phonenumber}`}>{campusDetails.coordinator_phonenumber} </a></h6>
                </div>
             </div>
             <div className="exe-details-container-two">
@@ -413,8 +413,8 @@ const School = () => {
                       <h6>Name: {campusDetails.secretary_name} </h6>
                       <h6>Course: {campusDetails.secretary_course} </h6>
                       <h6>Level: {campusDetails.secretary_level} </h6>
-                      <h6>Email: <a href="">{campusDetails.secretary_email} </a></h6>
-                      <h6>Phone no: <a href="">{campusDetails.secretary_phonenumber} </a></h6>
+                      <h6>Email: <a href={`mailto:${campusDetails.secretary_email}`}>{campusDetails.secretary_email} </a></h6>
+                      <h6>Phone no: <a href={`tel:${campusDetails.secretary_phonenumber}`}>{campusDetails.secretary_phonenumber} </a></h6>
                   </div>
                 <div className="exe-image">
                 <div className='exe-image-container'>
@@ -699,7 +699,7 @@ const School = () => {
               <div className="embla___slide__number">
                 <img
                   src={image}
-                  alt={`NRP Image ${index + 1}`}
+                  alt={`NRP display ${index + 1}`}
                   className="embla___slide__image"
                 />
               </div>
@@ -730,7 +730,7 @@ const School = () => {
                           <div className="embla___slide__number">
                             <img
                               src={image}
-                              alt={`WLC Image ${index + 1}`}
+                              alt={`WLC display ${index + 1}`}
                               className="embla___slide__image"
                             />
                           </div>

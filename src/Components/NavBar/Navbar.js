@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import logo from '../../Images/logo.png';
 import { Link, useLocation } from 'react-router-dom';
-import { FaArrowRight, FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+// import { FaArrowRight, FaSearch } from "react-icons/fa";
+
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,7 +40,7 @@ const Navbar = () => {
     campus.campusOrSchoolAcronym.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const dropdownMaxHeight = Math.min(filteredCampusList.length * 50, 300); // 50px for each item, capped at 300px
+  // const dropdownMaxHeight = Math.min(filteredCampusList.length * 50, 300); // 50px for each item, capped at 300px
 
   // Style for active or inactive status
   const getItemStyle = (status) => {
@@ -58,14 +60,14 @@ const Navbar = () => {
 
   const toggleNav = () => setIsNavOpen(!isNavOpen);
   const targetRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-  const showSearchInput = isHovered || isFocused;
+  // const [isHovered, setIsHovered] = useState(false);
+  // const [isFocused, setIsFocused] = useState(false);
+  // const showSearchInput = isHovered || isFocused;
 
-  const handleCloseSearch = () => {
-    setIsFocused(false);
-    setSearchQuery(""); // Clear the search query
-  }
+  // const handleCloseSearch = () => {
+  //   setIsFocused(false);
+  //   setSearchQuery(""); // Clear the search query
+  // }
 
   return (
     <nav className="navbar">

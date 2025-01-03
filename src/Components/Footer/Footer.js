@@ -4,7 +4,7 @@ import './Footer.css';
 // Import SVG files
 import Facebook from '../../Images/facebook.svg';
 import Instagram from '../../Images/instagram.svg';
-import Linkdin from '../../Images/linkdin.svg';
+// import Linkdin from '../../Images/linkdin.svg';
 import Twitter from '../../Images/twitter.svg';
 
 const Footer = ({campusDetails}) => {
