@@ -28,10 +28,19 @@ jobs:
       - name: Build the application
         run: npm run build
 
+      # Configure SSH
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
       # Deploy to server
       - name: Deploy to server
         run: |
-          ssh -t root@91.235.129.103 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@91.235.129.103 << 'EOF'
           pm2 stop all
           cd agm-website-frontend/afcf-agm
           git pull
