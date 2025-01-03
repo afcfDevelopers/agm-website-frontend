@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import { Tooltip } from 'react-tooltip';
+// import { Tooltip } from 'react-tooltip';
 import { motion } from 'framer-motion';
 import 'react-tooltip/dist/react-tooltip.css';
 import './home.css';
@@ -13,28 +13,21 @@ import logo2 from '../../Images/logo2.png';
 import logo3 from '../../Images/logo3.png';
 import logo4 from '../../Images/logo4.png';
 import logo5 from '../../Images/logo5.png';
-import annoucementImage from '../../Images/annoucement.jpg';
 import ImageSlider from '../../Components/ImageSlider/ImageSlider';
 import PdfDownload from '../../Components/Schedule/Schedule';
 import axios from 'axios';
-import { FaTimes } from 'react-icons/fa';
 
 const Home = () => {
   const [campusList, setCampusList] = useState([]);
   const [activeCount, setActiveCount] = useState(0);
   const [inactiveCount, setInactiveCount] = useState(0);
-  const [selectedTab, setSelectedTab] = useState('University');
+  const [, setSelectedTab] = useState('University');
 
   const { ref: topSectionRef, inView: topSectionInView } = useInView({ triggerOnce: true });
   const { ref: logosRef, inView: logosInView } = useInView({ triggerOnce: false });
   const { ref: schoolListRef, inView: schoolListInView } = useInView({ triggerOnce: false });
 
-  useEffect(() => {
-    getCampusAvs();
-    setSelectedTab('University'); // Ensure default tab is selected
-  }, []);
-
-  const getCampusAvs = () => {
+  const getCampusAvs = useCallback(() => {
     fetch('https://afcfagm.pythonanywhere.com/api/get-all-campusavs/')
       .then(response => response.json())
       .then(data => {
@@ -43,7 +36,13 @@ const Home = () => {
         calculateCounts(campuses);
       })
       .catch(err => console.error('Failed to fetch campus AVS list:', err));
-  };
+  }, []);
+
+  useEffect(() => {
+    getCampusAvs();
+    setSelectedTab('University'); // Ensure default tab is selected
+  }, [getCampusAvs]);
+  
 
   const calculateCounts = (campuses) => {
     const active = campuses.filter(campus => campus.active_Inactive.toLowerCase() === 'active').length;
