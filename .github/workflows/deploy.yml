@@ -41,13 +41,12 @@ jobs:
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no root@91.235.129.103 << 'EOF'
-          pm2 stop agm-4700
+          npm run stop
+          nvm use 16
           cd /home/agm-website-frontend
           git pull
           npm install
-          npm run build
-          pm2 start server.js
-          pm2 start agm-4700
+          npm run prod
           EOF
         env:
           NODE_ENV: production
