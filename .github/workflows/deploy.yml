@@ -47,6 +47,7 @@ jobs:
           npm install
           npm run build
           pm2 start server.js
+          pm2 start agm-4700
           EOF
         env:
           NODE_ENV: production
